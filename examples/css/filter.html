@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>filter</title>
+  <style type="text/css">
+    .container {
+      display: inline-block;
+      position: relative;
+      padding: 20px 10px;
+    }
+
+    h1,
+    p {
+      font-family: sans-serif;
+      text-align: center;
+      color: #333;
+      letter-spacing: 0.1em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .img:hover {
+      cursor: pointer;
+      transition: filter .5s;
+      filter: none !important;
+    }
+
+    .btn:hover,
+    .img1:hover {
+      cursor: pointer;
+      transition: filter .3s;
+      filter: brightness(1.1) contrast(110%);
+    }
+
+    .avator::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      background-size: 100% 100%;
+      border-radius: 50%;
+      transform: scale(.95);
+      filter: blur(10px) brightness(80%) opacity(.8);
+      z-index: -1;
+    }
+
+    .filter-mix::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #333;
+      top: 40px;
+      left: 40px;
+      z-index: 2;
+      filter: blur(6px);
+      box-sizing: border-box;
+      animation: filterBallMove 4s ease-out infinite;
+    }
+
+    .filter-mix::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #3F51B5;
+      top: 60px;
+      right: 40px;
+      z-index: 2;
+      filter: blur(6px);
+      animation: filterBallMove2 4s ease-out infinite;
+    }
+
+    @keyframes filterBallMove {
+      50% {
+        left: 140px;
+      }
+    }
+
+    @keyframes filterBallMove2 {
+      50% {
+        right: 140px;
+      }
+    }
+
+    .dot {
+      position: absolute;
+      bottom: -210px;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    .dot:nth-child(1) {
+      bottom: -282px;
+      left: 30px;
+      animation: move 2s infinite 4.5s linear;
+    }
+
+    .dot:nth-child(2) {
+      bottom: -242px;
+      left: -127px;
+      animation: move 1.6s infinite 1.6s linear;
+    }
+
+    .dot:nth-child(3) {
+      bottom: -302px;
+      left: -55px;
+      animation: move 2.6s infinite 1.6s linear;
+    }
+
+    .dot:nth-child(4) {
+      bottom: -360px;
+      left: 37px;
+      animation: move 2.8s infinite 5.5s linear;
+    }
+
+    .dot:nth-child(5) {
+      bottom: -261px;
+      left: -86px;
+      animation: move 1.6s infinite 3.8s linear;
+    }
+
+    .dot:nth-child(6) {
+      bottom: -295px;
+      left: -120px;
+      animation: move 1s infinite 3.3s linear;
+    }
+
+    .dot:nth-child(7) {
+      bottom: -278px;
+      left: -82px;
+      animation: move 1s infinite 5.8s linear;
+    }
+
+    .dot:nth-child(8) {
+      bottom: -281px;
+      left: 124px;
+      animation: move 2s infinite 3.7s linear;
+    }
+
+    .dot:nth-child(9) {
+      bottom: -339px;
+      left: 133px;
+      animation: move 2.4s infinite 5.2s linear;
+    }
+
+    .dot:nth-child(10) {
+      bottom: -289px;
+      left: -69px;
+      animation: move 1.3s infinite 4s linear;
+    }
+
+    .dot:nth-child(11) {
+      bottom: -355px;
+      left: -126px;
+      animation: move 1.9s infinite 4.1s linear;
+    }
+
+    .dot:nth-child(12) {
+      bottom: -345px;
+      left: 137px;
+      animation: move 0.8s infinite 0.2s linear;
+    }
+
+    .dot:nth-child(13) {
+      bottom: -245px;
+      left: -64px;
+      animation: move 2.1s infinite 3.5s linear;
+    }
+
+    .dot:nth-child(14) {
+      bottom: -314px;
+      left: 110px;
+      animation: move 1.8s infinite 5.6s linear;
+    }
+
+    .dot:nth-child(15) {
+      bottom: -283px;
+      left: 71px;
+      animation: move 0.9s infinite 2.9s linear;
+    }
+
+    .dot:nth-child(16) {
+      bottom: -287px;
+      left: -17px;
+      animation: move 1.9s infinite 3.9s linear;
+    }
+
+    .dot:nth-child(17) {
+      bottom: -317px;
+      left: 17px;
+      animation: move 1.3s infinite 4.5s linear;
+    }
+
+    .dot:nth-child(18) {
+      bottom: -335px;
+      left: -141px;
+      animation: move 2.8s infinite 3.9s linear;
+    }
+
+    .dot:nth-child(19) {
+      bottom: -319px;
+      left: -106px;
+      animation: move 0.8s infinite 2.2s linear;
+    }
+
+    .dot:nth-child(20) {
+      bottom: -324px;
+      left: -5px;
+      animation: move 1.2s infinite 3.7s linear;
+    }
+
+    .dot:nth-child(21) {
+      bottom: -355px;
+      left: -5px;
+      animation: move 2.3s infinite 0.4s linear;
+    }
+
+    .dot:nth-child(22) {
+      bottom: -318px;
+      left: -112px;
+      animation: move 3.1s infinite 5.6s linear;
+    }
+
+    .dot:nth-child(23) {
+      bottom: -336px;
+      left: -66px;
+      animation: move 0.9s infinite 2.8s linear;
+    }
+
+    .dot:nth-child(24) {
+      bottom: -241px;
+      left: 55px;
+      animation: move 1.8s infinite 4.2s linear;
+    }
+
+    .dot:nth-child(25) {
+      bottom: -336px;
+      left: -50px;
+      animation: move 1.5s infinite 5.9s linear;
+    }
+
+    .dot:nth-child(26) {
+      bottom: -268px;
+      left: -69px;
+      animation: move 1.7s infinite 2.8s linear;
+    }
+
+    .dot:nth-child(27) {
+      bottom: -308px;
+      left: -75px;
+      animation: move 2.8s infinite 1.9s linear;
+    }
+
+    .dot:nth-child(28) {
+      bottom: -289px;
+      left: 112px;
+      animation: move 2.5s infinite 1.3s linear;
+    }
+
+    .dot:nth-child(29) {
+      bottom: -283px;
+      left: 74px;
+      animation: move 2.5s infinite 4.1s linear;
+    }
+
+    .dot:nth-child(30) {
+      bottom: -320px;
+      left: 140px;
+      animation: move 2.4s infinite 4.4s linear;
+    }
+
+    .dot:nth-child(31) {
+      bottom: -331px;
+      left: 13px;
+      animation: move 1.3s infinite 1.4s linear;
+    }
+
+    .dot:nth-child(32) {
+      bottom: -273px;
+      left: -109px;
+      animation: move 2.1s infinite 2.3s linear;
+    }
+
+    .dot:nth-child(33) {
+      bottom: -283px;
+      left: 97px;
+      animation: move 3.2s infinite 4.8s linear;
+    }
+
+    .dot:nth-child(34) {
+      bottom: -253px;
+      left: -156px;
+      animation: move 2.7s infinite 1.5s linear;
+    }
+
+    .dot:nth-child(35) {
+      bottom: -346px;
+      left: 101px;
+      animation: move 2.2s infinite 5.6s linear;
+    }
+
+    .dot:nth-child(36) {
+      bottom: -279px;
+      left: 30px;
+      animation: move 1.2s infinite 4.7s linear;
+    }
+
+    .dot:nth-child(37) {
+      bottom: -329px;
+      left: -92px;
+      animation: move 2.3s infinite 3.3s linear;
+    }
+
+    .dot:nth-child(38) {
+      bottom: -256px;
+      left: -147px;
+      animation: move 3.3s infinite 4.8s linear;
+    }
+
+    .dot:nth-child(39) {
+      bottom: -324px;
+      left: 55px;
+      animation: move 0.9s infinite 4.7s linear;
+    }
+
+    .dot:nth-child(40) {
+      bottom: -311px;
+      left: 118px;
+      animation: move 2.2s infinite 5.3s linear;
+    }
+
+
+
+    @keyframes move {
+      100% {
+        transform: translate3d(0, -350px, 0);
+      }
+    }
+
+    @keyframes letterspacing {
+      0% {
+        letter-spacing: -2.2rem;
+        filter: blur(.3rem);
+      }
+
+      50% {
+        filter: blur(.5rem);
+      }
+
+      100% {
+        letter-spacing: .5rem;
+        filter: blur(0rem);
+        color: #fff;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="title">
+    <h1 style="font-size: 4em;">CSS3 filters</h1>
+  </div>
+  <div class="container">
+    <img id="no-filter" class="img" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>无滤镜</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: grayscale(1);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Grayscale</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: invert(.9);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Invert</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: brightness(.5);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Brightness</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: saturate(6);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Saturation</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: sepia(1);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Sepia</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: blur(5px);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Blur</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: contrast(200%);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>Opacity</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: hue-rotate(45deg);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>hue-rotate</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: drop-shadow(16px 16px 20px blue);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>drop-shadow</p>
+  </div>
+  <div class="container">
+    <img class="img" style="filter: opacity(.5);" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+    <p>opacity</p>
+  </div>
+  <br />
+  <div class="container">
+    <div class="btn" style="width: 232px;line-height: 64px;text-align: center;color: #fff;background-color: yellowgreen;
+margin-bottom: 40px;">Btn</div>
+    <img class="img1" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505214459305&di=74538737a18be2a063ef6bbbd748e139&imgtype=0&src=http%3A%2F%2Fscimg.jb51.net%2Fallimg%2F150921%2F14-1509211645480-L.jpg" />
+  </div>
+  <div class="container">
+    <div class="avator" style="position: relative;width: 200px;height: 200px;border-radius: 50%;background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505822443&di=941986df9c6514d5d43eaba4aa938347&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.qqtouxiang8.net%2Fuploads%2Fallimg%2Fc150313%2F142623130563050-922006.jpg') no-repeat center center;background-size: 100% 100%;"></div>
+  </div>
+  <div class="container" style="width:280px;height:260px;">
+    <div class="filter-mix" style="width: 300px;height: 200px;filter: contrast(20);background: #fff;"></div>
+  </div>
+
+  <div class="container" style="width: 384px;height: 300px;margin: 0 auto;background-color: #000;overflow: hidden;">
+    <div class="fire" style="position: absolute;width: 0;height: 0;bottom: 100px;left: 50%;border-radius: 45%;box-sizing: border-box;border: 200px solid #000;border-bottom: 200px solid transparent;transform: translate(-50%, 0) scaleX(0.4);background-color: #b5932f;filter: blur(20px) contrast(30);">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div class="container" style="width: 100%;height: 200px;box-sizing: border-box;position: relative;filter: contrast(20);background-color: black;overflow: hidden;">
+    <h2 style="color: white;font-size: 4rem;text-transform: uppercase;line-height: 1;animation: letterspacing 5s infinite alternate ease-in-out;display: block;letter-spacing: -2.2rem;">Blur word Animation</h2>
+  </div>
+</body>
+
+</html>
