@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>vertical-center</title>
+    <style type="text/css">
+        .wp {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+
+        .box {
+            background: green;
+        }
+
+        .box.size {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wp" style="position:relative;">
+        <div class="box size" style="position:absolute;top:50%;left:50%;margin-top:-25px;margin-left:-25px;">定宽高</div>
+    </div>
+    <div class="wp" style="position:relative;">
+        <div class="box size" style="position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;">定宽高</div>
+    </div>
+    <div class="wp" style="position:relative;">
+        <div class="box size" style="position:absolute;top:calc(50% - 25px);left:calc(50% - 25px);">定宽高</div>
+    </div>
+    <div class="wp" style="position:relative;">
+        <div class="box" style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);">不定宽高</div>
+    </div>
+    <div class="wp" style="line-height:100px;text-align:center;font-size:0px;">
+        <div class="box" style="font-size:16px;display:inline-block;vertical-align:middle;line-height:initial;text-align:left;">不定宽高</div>
+    </div>
+    <div class="wp" style="writing-mode:vertical-lr;text-align:center;">
+        <div class="wp-inner" style="writing-mode:horizontal-tb;display:inline-block;text-align:center;width:100%;">
+            <div class="box" style="display:inline-block;margin:auto;text-align:left;">不定宽高</div>
+        </div>
+    </div>
+    <div class="wp" style="display:table-cell;text-align:center;vertical-align:middle;">
+        <div class="box" style="display:inline-block;">不定宽高</div>
+    </div>
+    <div class="wp" style="display:flex;justify-content:center;align-items:center;">
+        <div class="box">不定宽高</div>
+    </div>
+    <div class="wp" style="display:grid;">
+        <div class="box" style="align-self:center;justify-self:center;">不定宽高</div>
+    </div>
+</body>
+
+</html>
