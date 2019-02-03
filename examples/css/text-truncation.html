@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>文字截断</title>
+    <style type="text/css">
+        .text-box {
+            margin-top: 10px;
+        }
+
+        .three {
+            position: relative;
+            line-height: 18px;
+            height: 36px;
+            overflow: hidden;
+            word-break: break-all;
+        }
+
+        .three::after {
+            content: "...";
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 20px 1px 45px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-box" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+        单行长文本单行长文本单行长文本单行长文本单行长文本单行长文本单行长文本单行长文本单行长文本单行长文本单行长文本
+    </div>
+    <div class="text-box" style="display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;">
+        webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本webkit专属多行长文本
+    </div>
+    <div class="text-box three">
+        定位元素模拟长文本截断定位元素模拟长文本截断定位元素模拟长文本截断定位元素模拟长文本截断定位元素模拟长文本截断定位元素模拟长文本截断定位元素模拟长文本截断
+    </div>
+</body>
+
+</html>
