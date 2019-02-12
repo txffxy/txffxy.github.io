@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>布局</title>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+  <div class="header" style="margin: 0 auto;max-width: 192px;height: 20px;background-color: blue;"></div>
+  <div class="content" style="margin: 0 auto;max-width: 192px;height: 80px;background-color: aquamarine;"></div>
+  <div class="footer" style="margin: 0 auto;max-width: 192px;height: 20px;background-color: aqua;"></div>
+  <hr />
+  <div class="header" style="margin: 0 auto;max-width: 192px;height: 20px;background-color: blue;">
+    <div class="nav" style="margin: 0 auto;max-width: 160px;height: 10px;background-color: darkgray;"></div>
+  </div>
+  <div class="content" style="margin: 0 auto;max-width: 160px;height: 80px;background-color: aquamarine;"></div>
+  <div class="footer" style="margin: 0 auto;max-width: 192px;height: 20px;background-color: aqua;"></div>
+  <hr />
+  <div class="parent" style="overflow: hidden;background-color: lightgrey;">
+    <div class="left" style="float: left;margin-right: 20px;background-color: lightblue;">
+      <p>left</p>
+    </div>
+    <div class="right" style="overflow: hidden;background-color: lightgreen;">
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+  <hr />
+  <div class="parent" style="display:flex;background-color: lightgrey;">
+    <div class="left" style="background-color: lightblue;">
+      <p>left</p>
+    </div>
+    <div class="right" style="margin-left:20px;flex:1;background-color: lightgreen;">
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+  <hr />
+  <div class="parent" style="display:grid;grid-template-columns:auto 1fr;grid-gap:20px;background-color: lightgrey;">
+    <div class="left" style="background-color: lightblue;">
+      <p>left</p>
+    </div>
+    <div class="right" style="background-color: lightgreen;">
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+  <hr />
+  <header style="height:50px;">header</header>
+  <section class="wrapper" style="padding: 0 100px 0 100px; overflow:hidden;">
+    <section class="col main" style="position: relative; float: left;width: 100%;height: 200px;background: yellow;">main
+    </section>
+    <aside class="col left"
+      style="position: relative; float: left;width: 100px; height: 200px; margin-left: -100%;left: -100px;background: red;">
+      left</aside>
+    <aside class="col right"
+      style="position: relative; float: left;width: 100px; height: 200px; margin-left: -100px; right: -100px;background: blue;">
+      right</aside>
+  </section>
+  <footer style="height:50px;">footer</footer>
+  <hr />
+  <header style="height:50px;">header</header>
+  <section class="wrapper" style="padding: 0; overflow:hidden;">
+    <section class="col main" style="float: left;width: 100%;">
+      <section class="main-wrap" style="margin: 0 100px 0 100px;height: 200px;background: yellow;">main</section>
+    </section>
+    <aside class="col left" style="float: left;width: 100px; height: 200px; margin-left: -100%;background: red;">left</aside>
+    <aside class="col right" style="float: left;width: 100px; height: 200px; margin-left: -100px;background: blue;">right</aside>
+  </section>
+  <footer style="height:50px;">footer</footer>
+
+</body>
+
+</html>
