@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>txffxy</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        let canvas, ctx;
+        document.addEventListener("DOMContentLoaded", function (event) {
+            canvas = document.querySelector('#canvas');
+            ctx = canvas.getContext('2d');
+        });
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function canvas1() {
+            clearCanvas();
+            ctx.fillRect(10, 10, 20, 20);
+            ctx.strokeRect(40, 10, 20, 20);
+            ctx.clearRect(16, 16, 8, 8);
+        }
+
+        function canvas2() {
+            clearCanvas();
+            ctx.beginPath();
+            ctx.moveTo(50, 50);
+            ctx.lineTo(200, 50);
+            ctx.lineTo(200, 200);
+            ctx.closePath();
+            ctx.stroke();
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <hr />
+    <button onclick="canvas1()">图形</button>
+    <button onclick="canvas2()">路径</button>
+</body>
+
+</html>
